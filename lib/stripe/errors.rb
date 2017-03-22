@@ -89,4 +89,16 @@ module Stripe
   # back off on request rate.
   class RateLimitError < StripeError
   end
+
+  # NoValidSignatureError is raised when the signature verification for a webhook
+  # fails
+  class NoValidSignatureError < StripeError
+    attr_accessor :sig_header
+
+    def initialize(sig_header, http_body: nil, json_body: nil)
+      message = "No valid signature found for webhook"
+      super(message, http_body: http_body, json_body: json_body)
+      @sig_header = sig_header
+    end
+  end
 end
