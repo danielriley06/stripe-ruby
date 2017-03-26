@@ -45,6 +45,7 @@ module Stripe
         'invoiceitem'             => InvoiceItem,
         'order'                   => Order,
         'order_return'            => OrderReturn,
+        'payout'                  => Payout,
         'plan'                    => Plan,
         'product'                 => Product,
         'recipient'               => Recipient,
